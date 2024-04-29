@@ -1,0 +1,130 @@
+﻿Michelle Shen
+Final project design prep 
+April 26, 2024
+
+
+* image_data: 2D array of integers representing brightness values of pixels.
+* image_display: 2D array of characters used to display the image based on brightness.
+* image_size Integer to track the dimensions of the loaded image.
+* file_name: String to store the current file name of the loaded image.
+
+
+Algorithm
+1, main() function 
+Initialize variables for the current image (a 2D array of brightness values), file name, and menu choice.
+        Display the main menu 
+        Execute the corresponding function, upon users’ input.
+
+
+2, display_menu() function
+        1, Load a new image — Prompting the user to enter the selected file name 
+2, Display image 
+3, Edit image — Display sub-menu
+                        1, Crop
+                        2, Dim
+                        3, Brightness
+                        4, Rotate 90 degrees 
+                        5, Save edited image 
+                        6, Back to main menu
+                Accept users' input, and apply it to the image data
+4, Quit program 
+
+
+3, load_image() function
+Input Parameter:
+String file_name 
+Returned Output:
+        Boolean show success status
+Functionality:
+Prompt the user to enter the image file name 
+Read the image data 
+
+
+4, display_image() function
+Input Parameter:
+        2D Array current_image 
+Returned Output:
+        None 
+Functionality:
+        Iterate through the current image array.
+Map each brightness value to a corresponding character based on the table 
+
+
+Brightness Value
+(stored in files)
+	Corresponding Character
+(displayed to screen)        
+	0
+	
+
+	1
+	.
+	2
+	o
+	3
+	O
+	4
+	0
+	
+
+Display the image 
+        
+5, edit_image() function
+Input Parameter:
+2D Array current_image 
+Returned Output:
+        2D Array edited_image 
+Functionality:
+Display an edit menu with options to crop, dim, brighten, or rotate the image.
+Based on user choice:
+Crop: Prompt user for coordinates of a smaller section of the image to extract.
+Dim: Reduce brightness values of all pixels by one step within the valid range.
+Brighten: Increase brightness values of all pixels by one step within the valid range.
+Rotate: Perform a 90-degree clockwise rotation of the image pixels.
+
+
+6, save_mage() Function
+Input Parameter:
+2D array edited_image
+String file_name
+Returned Output:
+Boolean show success status
+Functionality:
+Open a new file
+Write the image data (brightness values) into the file.
+Close the file.
+
+
+7, crop() Function
+Input Parameter:
+2D array current_image 
+Coordinates (x1, y1, x2, y2) for cropping
+Returned Output
+2D array cropped_image 
+Functionality:
+Extract a subregion of the current image defined by the specified coordinates.
+Return the cropped image.
+8, dim() Function
+Input Parameter:
+2D array current_image 
+Returned Output
+2D array dimmed_image 
+Functionality
+Decrease brightness values of all pixels by one step within the valid range (0-4).
+Return the dimmed image.
+9, brighten() Function:
+Input Parameter:
+2D array current_image 
+Returned Output:
+2D array brightened_image 
+Functionality:
+Increase the brightness values of all pixels by one step within the valid range (0-4).
+Return the brightened image.
+10, rotate() Function
+Input Parameter:
+2D array current_image 
+Returned Output:
+2D array rotated_image 
+Functionality:
+Perform a 90-degree clockwise rotation of the image pixels.
+Return the rotated image.
