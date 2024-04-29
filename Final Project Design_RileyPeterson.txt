@@ -1,0 +1,43 @@
+﻿Final Project Design
+Riley Peterson
+Erinstagram!
+
+
+Main Algorithm:
+Display the menu that gives the options to load a new image, display a current image, edit the current image, and exit the program. 
+If the user chooses to load a new image it should read the contents from any size of the input file of any size.
+If the user chooses to display the image the program will display the image.
+If the user chooses to edit the current image it should display a menu to choose from Crop, Dim, and Brighten. And then perform the selected option. 
+If the user chooses to exit, the program will close.
+
+
+Functions:
+Load Image:
+* Open the file specified by the user input filename
+* Read the contents of the file and store in a 2D list 
+* Close the File
+* Return the Image
+Open Current Image:
+* Open the current file
+* Read the current File
+* Close the current File
+* Return the current File
+Crop Image:
+* Extract the current image and get the specified region of the image(given by the x, y, width and height)
+* Return the edited image
+Dim Image:
+* Iterate through the list of 2D brightness values
+* Decrease the brightness levels a given amount
+* Return the new image
+
+
+
+
+Brighten Image:
+* Iterate through the list of 2D brightness values
+* Increase the brightness levels a given amount
+* Return the new image
+Save Image:
+* Open the specified file for writing
+* Write the contents of the file
+* Close the file
