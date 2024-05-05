@@ -141,13 +141,13 @@ void edit_image(){
 
         switch (choice) {
             case 1:
-                // dim_image();
+                dim_image();
                 break;
             case 2:
-                // brighten_image();
+                brighten_image();
                 break;
             case 3:
-                // crop_image();
+                crop_image();
                 break;
             case 4:
                 // rotate_image();
@@ -161,16 +161,62 @@ void edit_image(){
  
 }
 
-/*
 void dim_image(){
-    return 0;
+	for(int i = 0; i < rows; i++){
+		for(int j = 0; j < cols; j++){
+			if(image[i][j] > '0'){
+				image[i][j]--;
+			}
+		}
+	}
+	printf("Image has been dimmed.\n");
+    
 }
+
 void brighten_image(){
-    return 0;
+    for(int i = 0; i < rows; i++){
+		for(int j = 0; j < cols; j++){
+			if(image[i][j] < '4'){
+				image[i][j]++;
+			}
+		}
+	}
+	printf("Image is brighter.\n");
 }
+
 void crop_image(){
-    return 0;
+	int x, y;
+	int width, height;
+	
+	printf("Enter the x and y for crop: ");
+	scanf("%d %d", &x, &y);
+	printf("Enter the width and height for crop: ");
+	scanf("%d %d", &width, &height);
+	if(x < 0 || y < 0|| width <= 0 || height <= 0 || x + width > cols || y + height > rows){
+		printf("Inavlid Dimensions \n");
+		return;
+	}
+	char cropped_image[MAX_ROWS][MAX_COLS];
+	for(int i = y; i < y + height; i++){
+		for(int j = x; j < x + width; j++){
+			cropped_image[i - y][j - x] = image[i][j];
+		}
+	}
+	cols = width;
+	rows = height;
+	for(int i = 0; i < rows; i++){
+		for(int j = 0; j < cols; j++){
+			image[i][j] = cropped_image[i][j];
+		}
+	}
+	for(int i = rows; i < MAX_ROWS; i++){
+		for(int j = cols; j < MAX_COLS; j++){
+			image[i][j] = ' ';
+		}
+	}
+	printf("Image has been cropped.\n");
 }
+/*
 void rotate_image(){
     return 0;
 }*/
