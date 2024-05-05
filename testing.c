@@ -11,7 +11,7 @@ void brighten_image();
 void crop_image();
 void rotate_image();
 
-char image[MAX_ROWS][MAX_COLS]; // Array to store the image
+char image[MAX_ROWS][MAX_COLS];
 int rows = 0, cols = 0;
 
 
@@ -81,7 +81,7 @@ void load_image() {
     }
 
     fclose(file);
-    printf("Image loaded successfully.\n");
+    printf("Image loaded successfully.\n\n");
 }
 
 void display_image() {
