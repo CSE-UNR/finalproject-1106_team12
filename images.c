@@ -1,9 +1,7 @@
 /*
  Michelle Shen, Riley Peterson
- Fianl Project
+ Final Project
  May 3, 2024
- 
- Program description:
  
 */
 
@@ -13,7 +11,7 @@
 #define MAX_ROWS 1500
 // Maximum character in a Collum
 #define MAX_COLS 1500
-#define MAX_LENGTH 1000
+#define MAX_LENGTH 1500
 
 char image[MAX_ROWS][MAX_COLS];
 int rows = 0, cols = 0;
