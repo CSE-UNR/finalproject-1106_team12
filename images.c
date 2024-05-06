@@ -28,14 +28,14 @@ Program Description:
 char image[MAX_ROWS][MAX_COLS];
 int rows = 0, cols = 0;
 
-void load_image(); // Michelle
-void display_image(); // Michelle
-void edit_image(); // Michelle
-void dim_image(); // Riely
-void brighten_image(); // Riely
-void crop_image(); // Riely
-void rotate_image(); // Michelle
-void save_file(); // Michelle
+void load_image(); // Michelle Shen
+void display_image(); // Michelle Shen
+void edit_image(); // Michelle Shen
+void dim_image(); // Riely Peterson
+void brighten_image(); // Riely Peterson
+void crop_image(); // Riely Peterson
+void rotate_image(); // Michelle Shen
+void save_file(); // Michelle Shen
 
 // Main Function
 int main() {
