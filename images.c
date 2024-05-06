@@ -259,7 +259,8 @@ void crop_image() {
     printf("Image has been cropped to %dx%d.\n", cols, rows);
     display_image(); // Display the cropped image
 }
-
+ 
+// Rotate image function
 void rotate_image() {
     if (rows == 0 || cols == 0) {
         printf("No image loaded.\n");
