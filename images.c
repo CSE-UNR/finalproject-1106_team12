@@ -1,8 +1,20 @@
 /*
- Michelle Shen, Riley Peterson
- Final Project
- May 3, 2024
+Michelle Shen, Riley Peterson
+Final Project
+May 3, 2024
  
+Program Description:
+ Users will be prompted with a menu of options.
+ 1, Load a new image --- The program will attempt to read the contents of an image from a file name they provide.
+ 2, Display the current image --- The program will display the image from the file.
+ 3, Edit the current image --- The users will be able to choose from another menu of options.
+    1, crop --- The crop option allows the users to crop the image from a certain x y ceter point and making it smaller.
+    2, dim --- The dim option creates an edited image where each pixel is one step "dimmer".
+    3, brighten --- The brighten option creates an edited image where each pixel is one step "brighter".
+    4, rotate --- The rotate option allows the users to rotate 90 degrees clockwise
+    5, save file --- The save file opiton allows the users to save the edited image. (Modified from the Executable for the users to save the file after completing all edits, user may also save the file after each edits)
+    6, Back to main menu --- It will take the users back to the main menu.
+ 4, Exit --- Exiting the main program.
 */
 
 #include <stdio.h>
@@ -16,14 +28,14 @@
 char image[MAX_ROWS][MAX_COLS];
 int rows = 0, cols = 0;
 
-void load_image();
-void display_image();
-void edit_image();
-void dim_image();
-void brighten_image();
-void crop_image();
-void rotate_image();
-void save_file();
+void load_image(); // Michelle
+void display_image(); // Michelle
+void edit_image(); // Michelle
+void dim_image(); // Riely
+void brighten_image(); // Riely
+void crop_image(); // Riely
+void rotate_image(); // Michelle
+void save_file(); // Michelle
 
 // Main Function
 int main() {
@@ -72,8 +84,9 @@ int main() {
 // Load image function.
 void load_image() {
     FILE *file;
-    char filename[1500];
+    char filename[100];
 
+    // Prompt the users to enter the filename.
     printf("Enter the filename: ");
     scanf("%99s", filename);
 
@@ -101,6 +114,7 @@ void load_image() {
     printf("Image loaded successfully.\n\n");
 }
 
+// Display Image function.
 void display_image() {
     if (rows == 0 || cols == 0) {
         printf("No image loaded.\n");
@@ -114,22 +128,22 @@ void display_image() {
 
             switch (image[i][j]) {
                 case '0':
-                    output_char = ' '; // Space
+                    output_char = ' '; // Input Zero '0' Output Space ' '
                     break;
                 case '1':
-                    output_char = '.'; // Period
+                    output_char = '.'; // Input One '1' Output Period '.'
                     break;
                 case '2':
-                    output_char = 'o'; // Lowercase 'o'
+                    output_char = 'o'; // Input Two '2' Output Lowercase 'o'
                     break;
                 case '3':
-                    output_char = 'O'; // Uppercase 'O'
+                    output_char = 'O'; // Input Two '3' Output Uppercase 'O'
                     break;
                 case '4':
-                    output_char = '0'; // Zero
+                    output_char = '0'; // Input Four '4' Output Zero '0'
                     break;
                 default:
-                    output_char = '?'; // Unknown character (for safety)
+                    output_char = '?'; // Any Unknown character will Output '?'
                     break;
             }
 
@@ -188,7 +202,9 @@ void edit_image(){
     } while (choice != 6);
  
 }
-//Riley Made this function
+
+// Riley Made this function
+// Dim Image Function.
 void dim_image(){
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
@@ -201,7 +217,8 @@ void dim_image(){
     display_image();
     
 }
-//Riley Made this function
+// Riley Made this function
+// Brighten Image function
 void brighten_image(){
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
@@ -211,18 +228,22 @@ void brighten_image(){
         }
     }
     printf("Image is brighter.\n");
+    // Display the cropped image
     display_image();
 }
-//Riley Made this function
+
+// Riley Made this function
+// Crop Image function.
 void crop_image() {
     int x, y;
     int width, height;
     int original_rows = rows;
     int original_cols = cols;
     
-    // Display original and cropped dimensions
+    // Display the original dimention.
     printf("Image dimensions: %dx%d\n", original_cols, original_rows);
     
+    // Prompt the users to
     printf("Enter the x and y for crop: ");
     scanf("%d %d", &x, &y);
     printf("Enter the width and height for crop: ");
@@ -255,10 +276,12 @@ void crop_image() {
         }
     }
     printf("Image has been cropped to %dx%d.\n", cols, rows);
-    display_image(); // Display the cropped image
+    
+    // Display the cropped image
+    display_image();
 }
  
-// Rotate image function
+// Rotate Image function
 void rotate_image() {
     if (rows == 0 || cols == 0) {
         printf("No image loaded.\n");
@@ -292,7 +315,7 @@ void rotate_image() {
     display_image();
 }
 
-// Save file function.
+// Save File function.
 void save_file() {
     FILE *saved_file;
     char filename[1000];
@@ -300,17 +323,16 @@ void save_file() {
     printf("Enter a filename: ");
     scanf("%s", filename);
 
-    // Open the output file in write mode
     saved_file = fopen(filename, "w");
     if (saved_file == NULL) {
         printf("Error creating file %s\n", filename);
-        return; // Return early if file creation failed
+        return;
     }
     
     // Write the image data to the file
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            fputc(image[i][j], saved_file); // Write each character to the file
+            fputc(image[i][j], saved_file);
         }
         fputc('\n', saved_file); // Add a newline character at the end of each row
     }
