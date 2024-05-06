@@ -188,7 +188,7 @@ void edit_image(){
     } while (choice != 6);
  
 }
-
+//Riley Made this function
 void dim_image(){
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
@@ -201,7 +201,7 @@ void dim_image(){
     display_image();
     
 }
-
+//Riley Made this function
 void brighten_image(){
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
@@ -213,7 +213,7 @@ void brighten_image(){
     printf("Image is brighter.\n");
     display_image();
 }
-
+//Riley Made this function
 void crop_image() {
     int x, y;
     int width, height;
