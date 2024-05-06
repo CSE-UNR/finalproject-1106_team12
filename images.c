@@ -8,12 +8,12 @@ Program Description:
  1, Load a new image --- The program will attempt to read the contents of an image from a file name they provide.
  2, Display the current image --- The program will display the image from the file.
  3, Edit the current image --- The users will be able to choose from another menu of options.
-    1, crop --- The crop option allows the users to crop the image from a certain x y ceter point and making it smaller.
+    1, crop --- The crop option allows the users to crop the image from a certain x y center point and make it smaller.
     2, dim --- The dim option creates an edited image where each pixel is one step "dimmer".
     3, brighten --- The brighten option creates an edited image where each pixel is one step "brighter".
     4, rotate --- The rotate option allows the users to rotate 90 degrees clockwise
-    5, save file --- The save file opiton allows the users to save the edited image. (Modified from the Executable for the users to save the file after completing all edits, user may also save the file after each edits)
-    6, Back to main menu --- It will take the users back to the main menu.
+    5, save file --- The save file option allows the users to save the edited image. (Modified from the Executable for the users to save the file after completing all edits, user may also save the file after each edits)
+    6, Back to the main menu --- It will take the users back to the main menu.
  4, Exit --- Exiting the main program.
 */
 
@@ -31,9 +31,9 @@ int rows = 0, cols = 0;
 void load_image(); // Michelle Shen
 void display_image(); // Michelle Shen
 void edit_image(); // Michelle Shen
-void dim_image(); // Riely Peterson
-void brighten_image(); // Riely Peterson
-void crop_image(); // Riely Peterson
+void dim_image(); // Riley Peterson
+void brighten_image(); // Riley Peterson
+void crop_image(); // Riley Peterson
 void rotate_image(); // Michelle Shen
 void save_file(); // Michelle Shen
 
