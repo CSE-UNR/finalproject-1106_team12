@@ -216,28 +216,28 @@ void brighten_image(){
 }
 
 void crop_image(){
-    int x, y;
+    int x_value, y_value;
     int width, height;
     
     printf("Enter the x and y for crop: ");
-    scanf("%d %d", &x, &y);
+    scanf("%d %d", &x_value, &y_value);
     printf("Enter the width and height for crop: ");
     scanf("%d %d", &width, &height);
-    if(x < 0 || y < 0|| width <= 0 || height <= 0 || x + width > cols || y + height > rows){
+    if(x_value < 0 || y_value < 0|| width <= 0 || height <= 0 || x_value + width > cols || y_value + height > rows){
         printf("Inavlid Dimensions \n");
         return;
     }
-    char cropped_image[MAX_ROWS][MAX_COLS];
-    for(int i = y; i < y + height; i++){
-        for(int j = x; j < x + width; j++){
-            cropped_image[i - y][j - x] = image[i][j];
+    char croppedImage[MAX_ROWS][MAX_COLS];
+    for(int i = y_value; i < y_value + height; i++){
+        for(int j = x_value; j < x_value + width; j++){
+            croppedImage[i - y_value][j - x_value] = image[i][j];
         }
     }
     cols = width;
     rows = height;
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
-            image[i][j] = cropped_image[i][j];
+            image[i][j] = croppedImage[i][j];
         }
     }
     for(int i = rows; i < MAX_ROWS; i++){
