@@ -18,6 +18,7 @@ Program Description:
 */
 
 #include <stdio.h>
+#include <string.h>
 
 // Maximum character in a Row
 #define MAX_ROWS 1500
@@ -86,7 +87,6 @@ void load_image() {
     FILE *file;
     char filename[100];
 
-    // Prompt the users to enter the filename.
     printf("Enter the filename: ");
     scanf("%99s", filename);
 
@@ -96,22 +96,25 @@ void load_image() {
         return;
     }
 
-    char ch;
-    rows = 0;
-    cols = 0;
-    while ((ch = fgetc(file)) != EOF && rows < MAX_ROWS) {
-        if (ch == '\n') {
-            // End of a row, move to the next row
-            rows++;
-            cols = 0; // Reset column count for the new row
-        } else if (cols < MAX_COLS) {
-            // Store the character in the image array
-            image[rows][cols++] = ch;
-        }
+    char buffer[MAX_COLS + 1]; // Buffer to hold one row + '\0'
+    while (rows < MAX_ROWS && fgets(buffer, sizeof(buffer), file) != NULL) {
+        // Remove newline character from the end of the buffer
+        buffer[strcspn(buffer, "\n")] = '\0';
+
+        // Copy the buffer content to the image array
+        strncpy(image[rows], buffer, MAX_COLS);
+        image[rows][MAX_COLS - 1] = '\0'; // Ensure null termination
+
+        // Update cols based on the length of the buffer
+        cols = strlen(buffer);
+
+        // Move to the next row
+        rows++;
     }
 
     fclose(file);
-    printf("Image loaded successfully.\n\n");
+
+    printf("Image loaded successfully.\n");
 }
 
 // Display Image function.
